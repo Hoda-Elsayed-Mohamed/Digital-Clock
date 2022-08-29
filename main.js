@@ -2,9 +2,9 @@
 
 window.setInterval(function(){
     var time = new Date();
-time.getHours(); //returns value 0-23 for the current hour
-time.getMinutes(); //returns value 0-59 for the current minute of the hour
-time.getSeconds(); 
+var h =time.getHours(); 
+var m =time.getMinutes(); 
+var s =time.getSeconds(); 
 
 
 const hour =document.getElementById('hours');
@@ -12,14 +12,21 @@ const minute =document.getElementById('minutes');
 const second =document.getElementById('seconds');
 const green =document.getElementById('green');
 
-    hour.textContent =time.getHours();
-minute.textContent =time.getMinutes();
-second.textContent =time.getSeconds();
-
-if(hour.textContent >12){
-    hour.textContent=hour.textContent-12;
+if(h >12){
+    h=h-12;
     green.textContent='PM';
 }
+
+h = h < 10 ? "0" + h : h;
+console.log(h)
+m = m < 10 ? "0" + m : m;
+s = s < 10 ? "0" + s : s;
+
+hour.textContent =h;
+minute.textContent =m;
+second.textContent =s;
+
+
 }, 1000);
 
 
